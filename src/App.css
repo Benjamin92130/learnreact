@@ -7,7 +7,7 @@
 .first_page {
   display: flex;
   height: 100vh;
-  background-image: url("hthttps://images.pexels.com/photos/31489137/pexels-photo-31489137/free-photo-of-variete-de-cactus-colores-en-pots.jpeg?auto=compress&cs=tinysrgb&w=2480&h=1500&dpr=2");
+  background-image: url("https://images.pexels.com/photos/31489137/pexels-photo-31489137/free-photo-of-variete-de-cactus-colores-en-pots.jpeg?auto=compress&cs=tinysrgb&w=2480&h=1500&dpr=2");
   background-size: cover;
   background-position: center;
   justify-content: center;
