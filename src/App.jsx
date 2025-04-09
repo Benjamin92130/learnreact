@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
-import ConferenceEvent from "./ConferenceEvent";
+//import ConferenceEvent from "./ConferenceEvent";
+import CartSlice from "./CartSlice";
 import AboutUs from "./AboutUs";
 
 function App() {
@@ -19,18 +20,18 @@ function App() {
             <p className="budget_sentence">we cultivate a love for nature and a passion for growth.</p>
             <div className="getstarted_btn">
               <button onClick={() => handleGetStarted()} className="get-started-btn">
-                Products
+                Get Started
               </button>
             </div>
           </div>
-          <div className="aboutus_main">
+          <div className="aboutus">
             <AboutUs />
           </div>
         </div>
       </header>
 
       <div className={`event-list-container ${showVenue ? 'visible' : ''}`}>
-        <ConferenceEvent />
+        <CartSlice />
       </div>
     </>
   );

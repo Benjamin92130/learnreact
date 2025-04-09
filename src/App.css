@@ -7,7 +7,7 @@
 .first_page {
   display: flex;
   height: 100vh;
-  background-image: url("https://cdn.pixabay.com/photo/2018/07/05/14/45/conference-3518465_1280.jpg");
+  background-image: url("hthttps://images.pexels.com/photos/31489137/pexels-photo-31489137/free-photo-of-variete-de-cactus-colores-en-pots.jpeg?auto=compress&cs=tinysrgb&w=2480&h=1500&dpr=2");
   background-size: cover;
   background-position: center;
   justify-content: center;
@@ -64,8 +64,8 @@
   background-color: rgba(51, 61, 80, 0.7);
 }
 
-.aboutus_main {
-  width: 800px;
+.aboutus {
+  width: 600px;
   color: white;
   /* background-color: rgba(0,0,0,0.1); */
 
