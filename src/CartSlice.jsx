@@ -4,14 +4,14 @@ import TotalCost from "./TotalCost";
 import { useSelector, useDispatch } from "react-redux";
 import { incrementQuantity, decrementQuantity } from "./venueSlice";
 import { incrementAvQuantity, decrementAvQuantity } from "./avSlice";
-//import { toggleMealSelection } from "./mealsSlice";
+import { toggleMealSelection } from "./mealsSlice";
 
 const CartSlice = () => {
     const [showItems, setShowItems] = useState(false);
-    //const [numberOfPeople, setNumberOfPeople] = useState(1);
+    const [numberOfPeople, setNumberOfPeople] = useState(1);
     const venueItems = useSelector((state) => state.venue);
     const avItems = useSelector((state) => state.av);
-   // const mealsItems = useSelector((state) => state.meals);
+    const mealsItems = useSelector((state) => state.meals);
     const dispatch = useDispatch();
     const remainingAuditoriumQuantity = 3 - venueItems.find(item => item.name === "Auditorium Hall (Capacity:200)").quantity;
    
@@ -41,7 +41,7 @@ const CartSlice = () => {
         dispatch(decrementAvQuantity(index));
     };
 
-/*
+
     const handleMealSelection = (index) => {
       const item = mealsItems[index];
       if (item.selected && item.type === "mealForPeople") {
@@ -52,7 +52,7 @@ const CartSlice = () => {
           dispatch(toggleMealSelection(index));
       }
   };
-*/
+
     const getItemsFromTotalCost = () => {
       const items = [];
       venueItems.forEach((item) => {
@@ -68,7 +68,7 @@ const CartSlice = () => {
           items.push({ ...item, type: "av" });
         }
       });
-    /*  mealsItems.forEach((item) => {
+      mealsItems.forEach((item) => {
         if (item.selected) {
           const itemForDisplay = { ...item, type: "meals" };
           if (item.numberOfPeople) {
@@ -76,7 +76,7 @@ const CartSlice = () => {
           }
           items.push(itemForDisplay);
         }
-      });*/
+      });
       return items;
     };
 
@@ -129,23 +129,23 @@ const CartSlice = () => {
             totalCost += item.cost * item.quantity;
           });
         }
-        /*else if (section === "meals") {
+        else if (section === "meals") {
           mealsItems.forEach((item) => {
               if (item.selected) {
                 totalCost += item.cost * numberOfPeople;
               }
             });
-         }*/
+         }
         return totalCost;
       };
 
     const venueTotalCost = calculateTotalCost("venue");
     const avTotalCost = calculateTotalCost("av");
-    //const mealsTotalCost = calculateTotalCost("meals");
+    const mealsTotalCost = calculateTotalCost("meals");
     const totalCosts = {
       venue: venueTotalCost,
       av: avTotalCost,
-     // meals: mealsTotalCost,
+      meals: mealsTotalCost,
     };
     const navigateToProducts = (idType) => {
         if (idType == '#snake' || idType == '#rose' || idType == '#ucculent') {
@@ -296,7 +296,7 @@ const CartSlice = () => {
                                       </div>
                                   ))}
                               </div>
-                                <div className="total_cost">Total Cost: {mealsTotalCost}</div>
+                                <div className="total_cost">Total Cost: {/*mealsTotalCost*/}</div>
 
 
                             </div>
