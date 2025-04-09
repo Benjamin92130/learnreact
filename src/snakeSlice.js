@@ -38,13 +38,13 @@ export const snakeSlice = createSlice({
 
 
   reducers: {
-    incrementAvQuantity: (state, action) => {
+    incrementSnakeQuantity: (state, action) => {
       const item = state[action.payload];
       if (item) {
           item.quantity++;
       }
     },
-    decrementAvQuantity: (state, action) => {
+    decrementSnakeQuantity: (state, action) => {
       const item = state[action.payload];
       if (item && item.quantity > 0) {
           item.quantity--;
@@ -53,6 +53,6 @@ export const snakeSlice = createSlice({
   },
 });
 
-export const { incrementAvQuantity, decrementAvQuantity } = snakeSlice.actions;
+export const { incrementSnakeQuantity, decrementSnakeQuantity } = snakeSlice.actions;
 
 export default snakeSlice.reducer;

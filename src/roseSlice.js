@@ -37,13 +37,13 @@ export const roseSlice = createSlice({
   
   ],
   reducers: {
-    incrementAvQuantity: (state, action) => {
+    incrementRoseQuantity: (state, action) => {
       const item = state[action.payload];
       if (item) {
           item.quantity++;
       }
     },
-    decrementAvQuantity: (state, action) => {
+    decrementRoseQuantity: (state, action) => {
       const item = state[action.payload];
       if (item && item.quantity > 0) {
           item.quantity--;
@@ -52,6 +52,6 @@ export const roseSlice = createSlice({
   },
 });
 
-export const { incrementQuantity, decrementQuantity } = roseSlice.actions;
+export const { incrementRoseQuantity, decrementRoseQuantity } = roseSlice.actions;
 
 export default roseSlice.reducer;

@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "./CartSlice.css";
 import TotalCost from "./TotalCost";
 import { useSelector, useDispatch } from "react-redux";
-import { incrementQuantity, decrementQuantity } from "./roseSlice";
-import { incrementsnakeQuantity, decrementsnakeQuantity } from "./snakeSlice";
+import { incrementRoseQuantity, decrementRoseQuantity } from "./roseSlice";
+import { incrementSnakeQuantity, decrementSnakeQuantity } from "./snakeSlice";
 //import { toggleMealSelection } from "./mealsSlice";
 
 const CartSlice = () => {
@@ -25,20 +25,20 @@ const CartSlice = () => {
         if (roseItems[index].name === "Auditorium Hall (Capacity:200)" && roseItems[index].quantity >= 3) {
           return; 
         }
-        dispatch(incrementQuantity(index));
+        dispatch(incrementRoseQuantity(index));
       };
     
       const handleRemoveFromCart = (index) => {
         if (roseItems[index].quantity > 0) {
-          dispatch(decrementQuantity(index));
+          dispatch(decrementRoseQuantity(index));
         }
       };
     const handleIncrementsnakeQuantity = (index) => {
-        dispatch(incrementsnakeQuantity(index));
+        dispatch(incrementSnakeQuantity(index));
     };
     
     const handleDecrementsnakeQuantity = (index) => {
-        dispatch(decrementsnakeQuantity(index));
+        dispatch(decrementSnakeQuantity(index));
     };
 
 
