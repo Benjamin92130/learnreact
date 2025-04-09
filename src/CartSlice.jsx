@@ -5,11 +5,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { incrementRoseQuantity, decrementRoseQuantity } from "./roseSlice";
 import { incrementSnakeQuantity, decrementSnakeQuantity } from "./snakeSlice";
 import { incrementSucculentQuantity, decrementSucculentQuantity } from "./succulentSlice";
-//import { toggleMealSelection } from "./mealsSlice";
+
 
 const CartSlice = () => {
     const [showItems, setShowItems] = useState(false);
-    const [numberOfPeople, setNumberOfPeople] = useState(1);
+    //const [numberOfPeople, setNumberOfPeople] = useState(1);
     const roseItems = useSelector((state) => state.rose);
     const snakeItems = useSelector((state) => state.snake);
     const succulentItems = useSelector((state) => state.succulent);
@@ -24,28 +24,32 @@ const CartSlice = () => {
 
     const handleAddToCart = (index) => {
         dispatch(incrementRoseQuantity(index));
-      };
+    };
     
-      const handleRemoveFromCart = (index) => {
+    const handleRemoveFromCart = (index) => {
         if (roseItems[index].quantity > 0) {
           dispatch(decrementRoseQuantity(index));
         }
-      };
+    };
     const handleIncrementsnakeQuantity = (index) => {
         dispatch(incrementSnakeQuantity(index));
     };
     
     const handleDecrementsnakeQuantity = (index) => {
+      if (snakeItems[index].quantity > 0) {
         dispatch(decrementSnakeQuantity(index));
+      }
     };
 
 
     const handleIncrementsucculentQuantity = (index) => {
       dispatch(incrementSucculentQuantity(index));
-  };
+   };
   
   const handleDecrementsucculentQuantity = (index) => {
+    if (succulentItems[index].quantity > 0) {
       dispatch(decrementSucculentQuantity(index));
+    }
   };
 
     const getItemsFromTotalCost = () => {
@@ -128,7 +132,7 @@ const CartSlice = () => {
         }
       }
 
-    return (
+  return (
         <>
             <navbar className="navbar_event_conference">
                 <div className="company_logo">Paradise Nursery</div>
@@ -218,7 +222,23 @@ const CartSlice = () => {
 
                                     <h2>Succulent</h2>
                                 </div>
-
+                                <div className="addons_selection">
+                                {succulenttems.map((item, index) => (
+                                  <div className="succulent_data rose_main" key={index}>
+                                      <div className="img">
+                                          <img src={item.img} alt={item.name} />
+                                      </div>
+                                  <div className="text"> {item.name} </div>
+                                  <div> ${item.cost} </div>
+                                      <div className="addons_btn">
+                                          <button className="btn-warning" onClick={() => handleDecrementsucculentQuantity(index)}> &ndash; </button>
+                                          <span className="quantity-value">{item.quantity}</span>
+                                          <button className=" btn-success" onClick={() => handleIncrementsuccuelentQuantity(index)}> &#43; </button>
+                                      </div>
+                                  </div>
+                              ))}
+                                </div>
+                                <div className="total_cost">Total Cost: ${succulentTotalCost}</div>
                           
 
                             </div>
@@ -238,7 +258,7 @@ const CartSlice = () => {
             </div>
         </>
 
-    );
+  ); 
 };
 
 export default CartSlice;
