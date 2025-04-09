@@ -14,11 +14,7 @@ const ConferenceEvent = () => {
     const mealsItems = useSelector((state) => state.meals);
     const dispatch = useDispatch();
     const remainingAuditoriumQuantity = 3 - venueItems.find(item => item.name === "Auditorium Hall (Capacity:200)").quantity;
-    const totalCosts = {
-      venue: venueTotalCost,
-      av: avTotalCost,
-      meals: mealsTotalCost,
-  };
+   
     
     const handleToggleItems = () => {
         console.log("handleToggleItems called");
@@ -137,13 +133,18 @@ const ConferenceEvent = () => {
                 totalCost += item.cost * numberOfPeople;
               }
             });
-      }
+         }
         return totalCost;
       };
+
     const venueTotalCost = calculateTotalCost("venue");
     const avTotalCost = calculateTotalCost("av");
     const mealsTotalCost = calculateTotalCost("meals");
-
+    const totalCosts = {
+      venue: venueTotalCost,
+      av: avTotalCost,
+      meals: mealsTotalCost,
+    };
     const navigateToProducts = (idType) => {
         if (idType == '#venue' || idType == '#addons' || idType == '#meals') {
           if (showItems) { // Check if showItems is false
@@ -299,9 +300,9 @@ const ConferenceEvent = () => {
                             </div>
                         </div>
                     ) : (
-                        <div className="total_amount_detail">
-                            <TotalCost totalCosts={totalCosts} handleClick={handleToggleItems} ItemsDisplay={() => <ItemsDisplay items={items} />} />
-                        </div>
+                      <div className="total_amount_detail">
+                        <TotalCost totalCosts={ totalCosts } ItemsDisplay={() => <ItemsDisplay items={ items } />} />
+                      </div>
                     )
                 }
 
