@@ -223,7 +223,7 @@ const CartSlice = () => {
                                     <h2>Succulent</h2>
                                 </div>
                                 <div className="addons_selection">
-                                {succulent.map((item, index) => (
+                                {succulentItems.map((item, index) => (
                                   <div className="succulent_data rose_main" key={index}>
                                       <div className="img">
                                           <img src={item.img} alt={item.name} />
