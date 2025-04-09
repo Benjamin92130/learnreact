@@ -229,7 +229,7 @@ const ConferenceEvent = () => {
           </div>
         )}
       </div>
-            </div>
+            </div> 
           ))}
         </div>
         
