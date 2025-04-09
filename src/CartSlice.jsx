@@ -13,7 +13,7 @@ const CartSlice = () => {
     const avItems = useSelector((state) => state.av);
     const mealsItems = useSelector((state) => state.meals);
     const dispatch = useDispatch();
-    const remainingAuditoriumQuantity = 3 - venueItems.find(item => item.name === "Auditorium Hall (Capacity:200)").quantity;
+    // remainingAuditoriumQuantity = 3 - venueItems.find(item => item.name === "Auditorium Hall (Capacity:200)").quantity;
    
     
     const handleToggleItems = () => {
@@ -198,7 +198,7 @@ const CartSlice = () => {
             {venueItems[index].quantity > 0 ? ` ${venueItems[index].quantity}` : "0"}
           </span>
           <button
-            className={remainingAuditoriumQuantity === 0? "btn-success btn-disabled" : "btn-success btn-plus"}
+            className="btn-success btn-plus"
             onClick={() => handleAddToCart(index)}
           >
             &#43;
