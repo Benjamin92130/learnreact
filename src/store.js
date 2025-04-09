@@ -2,13 +2,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import roseReducer from './roseSlice';
 import snakeReducer from './snakeSlice';
-//import mealsReducer from './mealsSlice';
+import succulentReducer from './succulentSlice';
 
 
 export default configureStore({
   reducer: {
     rose: roseReducer,
     snake: snakeReducer,
-   // meals: mealsReducer,
+    succulent: succulentReducer,
   },
 });

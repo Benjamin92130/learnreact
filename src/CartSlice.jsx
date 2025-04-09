@@ -4,6 +4,7 @@ import TotalCost from "./TotalCost";
 import { useSelector, useDispatch } from "react-redux";
 import { incrementRoseQuantity, decrementRoseQuantity } from "./roseSlice";
 import { incrementSnakeQuantity, decrementSnakeQuantity } from "./snakeSlice";
+import { incrementSucculentQuantity, decrementSucculentQuantity } from "./succulentSlice";
 //import { toggleMealSelection } from "./mealsSlice";
 
 const CartSlice = () => {
@@ -11,7 +12,7 @@ const CartSlice = () => {
     const [numberOfPeople, setNumberOfPeople] = useState(1);
     const roseItems = useSelector((state) => state.rose);
     const snakeItems = useSelector((state) => state.snake);
-    const mealsItems = useSelector((state) => state.meals);
+    const succulentItems = useSelector((state) => state.succulent);
     const dispatch = useDispatch();
     // remainingAuditoriumQuantity = 3 - roseItems.find(item => item.name === "Auditorium Hall (Capacity:200)").quantity;
    
@@ -22,9 +23,6 @@ const CartSlice = () => {
     };
 
     const handleAddToCart = (index) => {
-        if (roseItems[index].name === "Auditorium Hall (Capacity:200)" && roseItems[index].quantity >= 3) {
-          return; 
-        }
         dispatch(incrementRoseQuantity(index));
       };
     
@@ -42,16 +40,14 @@ const CartSlice = () => {
     };
 
 
-   /* const handleMealSelection = (index) => {
-      const item = mealsItems[index];
-      if (item.selected && item.type === "mealForPeople") {
-          const newNumberOfPeople = item.selected ? numberOfPeople : 0;
-          dispatch(toggleMealSelection(index, newNumberOfPeople));
-      }
-      else {
-          dispatch(toggleMealSelection(index));
-      }
-  };*/
+    const handleIncrementsucculentQuantity = (index) => {
+      dispatch(incrementSucculentQuantity(index));
+  };
+  
+  const handleDecrementsucculentQuantity = (index) => {
+      dispatch(decrementSucculentQuantity(index));
+  };
+  };
 
     const getItemsFromTotalCost = () => {
       const items = [];
@@ -61,22 +57,15 @@ const CartSlice = () => {
         }
       });
       snakeItems.forEach((item) => {
-        if (
-          item.quantity > 0 &&
-          !items.some((i) => i.name === item.name && i.type === "snake")
-        ) {
+        if (item.quantity > 0) {
           items.push({ ...item, type: "snake" });
         }
       });
-     /* mealsItems.forEach((item) => {
-        if (item.selected) {
-          const itemForDisplay = { ...item, type: "meals" };
-          if (item.numberOfPeople) {
-            itemForDisplay.numberOfPeople = numberOfPeople;
-          }
-          items.push(itemForDisplay);
+      succulentItems.forEach((item) => {
+        if (item.quantity > 0) {
+          items.push({ ...item, type: "succulent" });
         }
-      });*/
+      });
       return items;
     };
 
@@ -104,7 +93,7 @@ const CartSlice = () => {
                             <td>
                                 {item.quantity}
                             </td>
-                            <td>`${item.cost * item.quantity}`
+                            <td>${item.cost * item.quantity}
                             </td>
                         </tr>
                     ))}
@@ -125,23 +114,23 @@ const CartSlice = () => {
             totalCost += item.cost * item.quantity;
           });
         }
-        /*
-        else if (section === "meals") {
-          mealsItems.forEach((item) => {
+        
+        else if (section === "succulent") {
+          succulentItems.forEach((item) => {
               if (item.selected) {
-                totalCost += item.cost * numberOfPeople;
+                totalCost += item.cost * item.quantity;
               }
             });
-         }*/
+         }
         return totalCost;
       };
 
     const roseTotalCost = calculateTotalCost("rose");
     const snakeTotalCost = calculateTotalCost("snake");
-    //const mealsTotalCost = calculateTotalCost("meals");
+    const succulentTotalCost = calculateTotalCost("succulent");
 
     const totalCosts = {
-      rose: roseTotalCost,  snake: snakeTotalCost,  // meals: mealsTotalCost,
+      rose: roseTotalCost,  snake: snakeTotalCost,  succulent: succulentTotalCost,
     };
     const navigateToProducts = (idType) => {
         if (idType == '#snake' || idType == '#rose' || idType == '#succulent') {
