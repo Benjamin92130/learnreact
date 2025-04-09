@@ -2,18 +2,18 @@ import React, { useState } from "react";
 import "./CartSlice.css";
 import TotalCost from "./TotalCost";
 import { useSelector, useDispatch } from "react-redux";
-import { incrementQuantity, decrementQuantity } from "./venueSlice";
-import { incrementAvQuantity, decrementAvQuantity } from "./avSlice";
+import { incrementQuantity, decrementQuantity } from "./roseSlice";
+import { incrementsnakeQuantity, decrementsnakeQuantity } from "./snakeSlice";
 //import { toggleMealSelection } from "./mealsSlice";
 
 const CartSlice = () => {
     const [showItems, setShowItems] = useState(false);
     const [numberOfPeople, setNumberOfPeople] = useState(1);
-    const venueItems = useSelector((state) => state.venue);
-    const avItems = useSelector((state) => state.av);
+    const roseItems = useSelector((state) => state.rose);
+    const snakeItems = useSelector((state) => state.snake);
     const mealsItems = useSelector((state) => state.meals);
     const dispatch = useDispatch();
-    // remainingAuditoriumQuantity = 3 - venueItems.find(item => item.name === "Auditorium Hall (Capacity:200)").quantity;
+    // remainingAuditoriumQuantity = 3 - roseItems.find(item => item.name === "Auditorium Hall (Capacity:200)").quantity;
    
     
     const handleToggleItems = () => {
@@ -22,23 +22,23 @@ const CartSlice = () => {
     };
 
     const handleAddToCart = (index) => {
-        if (venueItems[index].name === "Auditorium Hall (Capacity:200)" && venueItems[index].quantity >= 3) {
+        if (roseItems[index].name === "Auditorium Hall (Capacity:200)" && roseItems[index].quantity >= 3) {
           return; 
         }
         dispatch(incrementQuantity(index));
       };
     
       const handleRemoveFromCart = (index) => {
-        if (venueItems[index].quantity > 0) {
+        if (roseItems[index].quantity > 0) {
           dispatch(decrementQuantity(index));
         }
       };
-    const handleIncrementAvQuantity = (index) => {
-        dispatch(incrementAvQuantity(index));
+    const handleIncrementsnakeQuantity = (index) => {
+        dispatch(incrementsnakeQuantity(index));
     };
     
-    const handleDecrementAvQuantity = (index) => {
-        dispatch(decrementAvQuantity(index));
+    const handleDecrementsnakeQuantity = (index) => {
+        dispatch(decrementsnakeQuantity(index));
     };
 
 
@@ -55,17 +55,17 @@ const CartSlice = () => {
 
     const getItemsFromTotalCost = () => {
       const items = [];
-      venueItems.forEach((item) => {
+      roseItems.forEach((item) => {
         if (item.quantity > 0) {
-          items.push({ ...item, type: "venue" });
+          items.push({ ...item, type: "rose" });
         }
       });
-      avItems.forEach((item) => {
+      snakeItems.forEach((item) => {
         if (
           item.quantity > 0 &&
-          !items.some((i) => i.name === item.name && i.type === "av")
+          !items.some((i) => i.name === item.name && i.type === "snake")
         ) {
-          items.push({ ...item, type: "av" });
+          items.push({ ...item, type: "snake" });
         }
       });
      /* mealsItems.forEach((item) => {
@@ -116,12 +116,12 @@ const CartSlice = () => {
 };
     const calculateTotalCost = (section) => {
         let totalCost = 0;
-        if (section === "venue") {
-          venueItems.forEach((item) => {
+        if (section === "rose") {
+          roseItems.forEach((item) => {
             totalCost += item.cost * item.quantity;
           });
-        }else if (section === "av") {
-          avItems.forEach((item) => {
+        }else if (section === "snake") {
+          snakeItems.forEach((item) => {
             totalCost += item.cost * item.quantity;
           });
         }
@@ -136,15 +136,15 @@ const CartSlice = () => {
         return totalCost;
       };
 
-    const venueTotalCost = calculateTotalCost("venue");
-    const avTotalCost = calculateTotalCost("av");
+    const roseTotalCost = calculateTotalCost("rose");
+    const snakeTotalCost = calculateTotalCost("snake");
     //const mealsTotalCost = calculateTotalCost("meals");
 
     const totalCosts = {
-      venue: venueTotalCost,  av: avTotalCost,  // meals: mealsTotalCost,
+      rose: roseTotalCost,  snake: snakeTotalCost,  // meals: mealsTotalCost,
     };
     const navigateToProducts = (idType) => {
-        if (idType == '#snake' || idType == '#rose' || idType == '#ucculent') {
+        if (idType == '#snake' || idType == '#rose' || idType == '#succulent') {
           if (showItems) { // Check if showItems is false
             setShowItems(!showItems); // Toggle showItems to true only if it's currently false
           }
@@ -171,52 +171,33 @@ const CartSlice = () => {
                     ?
                     (
                         <div className="items-information">
-                             <div id="venue" className="venue_container container_main">
+                             <div id="snake" className="rose_container container_main">
         <div className="text">
  
           <h2>Snake Plant</h2>
         </div>
-        <div className="venue_selection">
-          {venueItems.map((item, index) => (
-            <div className="venue_main" key={index}>
+        <div className="rose_selection">
+          {roseItems.map((item, index) => (
+            <div className="rose_main" key={index}>
               <div className="img">
                 <img src={item.img} alt={item.name} />
               </div>
               <div className="text">{item.name}</div>
               <div>${item.cost}</div>
      <div className="button_container">
-        {venueItems[index].name === "Auditorium Hall (Capacity:200)" ? (
-
-          <>
-          <button
-            className={venueItems[index].quantity === 0 ? "btn-warning btn-disabled" : "btn-minus btn-warning"}
-            onClick={() => handleRemoveFromCart(index)}
-          >
-            &#8211;
-          </button>
-          <span className="selected_count">
-            {venueItems[index].quantity > 0 ? ` ${venueItems[index].quantity}` : "0"}
-          </span>
-          <button
-            className="btn-success btn-plus"
-            onClick={() => handleAddToCart(index)}
-          >
-            &#43;
-          </button>
-        </>
-        ) : (
+        
           <div className="button_container">
            <button
-              className={venueItems[index].quantity ===0 ? " btn-warning btn-disabled" : "btn-warning btn-plus"}
+              className={roseItems[index].quantity ===0 ? " btn-warning btn-disabled" : "btn-warning btn-plus"}
               onClick={() => handleRemoveFromCart(index)}
             >
                &#8211;
             </button>
             <span className="selected_count">
-              {venueItems[index].quantity > 0 ? ` ${venueItems[index].quantity}` : "0"}
+              {roseItems[index].quantity > 0 ? ` ${roseItems[index].quantity}` : "0"}
             </span>
             <button
-              className={venueItems[index].quantity === 10 ? " btn-success btn-disabled" : "btn-success btn-plus"}
+              className={roseItems[index].quantity === 10 ? " btn-success btn-disabled" : "btn-success btn-plus"}
               onClick={() => handleAddToCart(index)}
             >
              &#43;
@@ -224,17 +205,17 @@ const CartSlice = () => {
             
             
           </div>
-        )}
+        
       </div>
             </div> 
           ))}
         </div>
         
-        <div className="total_cost">Total Cost: ${venueTotalCost}</div>
+        <div className="total_cost">Total Cost: ${roseTotalCost}</div>
       </div>
 
                             {/*Necessary Add-ons*/}
-                            <div id="addons" className="venue_container container_main">
+                            <div id="rose" className="rose_container container_main">
 
 
                                 <div className="text">
@@ -243,28 +224,28 @@ const CartSlice = () => {
 
                                 </div>
                                 <div className="addons_selection">
-                                {avItems.map((item, index) => (
-                                  <div className="av_data venue_main" key={index}>
+                                {snakeItems.map((item, index) => (
+                                  <div className="snake_data rose_main" key={index}>
                                       <div className="img">
                                           <img src={item.img} alt={item.name} />
                                       </div>
                                   <div className="text"> {item.name} </div>
                                   <div> ${item.cost} </div>
                                       <div className="addons_btn">
-                                          <button className="btn-warning" onClick={() => handleDecrementAvQuantity(index)}> &ndash; </button>
+                                          <button className="btn-warning" onClick={() => handleDecrementsnakeQuantity(index)}> &ndash; </button>
                                           <span className="quantity-value">{item.quantity}</span>
-                                          <button className=" btn-success" onClick={() => handleIncrementAvQuantity(index)}> &#43; </button>
+                                          <button className=" btn-success" onClick={() => handleIncrementsnakeQuantity(index)}> &#43; </button>
                                       </div>
                                   </div>
                               ))}
                                 </div>
-                                <div className="total_cost">Total Cost: {avTotalCost}</div>
+                                <div className="total_cost">Total Cost: {snakeTotalCost}</div>
 
                             </div>
 
                             {/* Meal Section */}
 
-                            <div id="meals" className="venue_container container_main">
+                            <div id="meals" className="rose_container container_main">
 
                                 <div className="text">
 

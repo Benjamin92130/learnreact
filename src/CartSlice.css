@@ -1,5 +1,5 @@
-/* Venue selection styles */
-.venue_container {
+/* rose selection styles */
+.rose_container {
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -13,7 +13,7 @@
     font-size: 24px;
   }
   
-  .venue_selection,.addons_selection , .meal_selection {
+  .rose_selection,.addons_selection , .meal_selection {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
@@ -21,7 +21,7 @@
     margin-left: 250px;
   }
   
-  .venue_main {
+  .rose_main {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,7 +46,7 @@
     justify-content: center;
     
   }
-  .venue_main .text {
+  .rose_main .text {
     font-size: 30px;
     color: #333;
   }
@@ -86,7 +86,7 @@
     margin-left: 190px;
   }
   
-  .av_data {
+  .snake_data {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -147,7 +147,7 @@
     font-size: 25px;
     margin-left: 40px;
   }
-  .venue_main .img img {
+  .rose_main .img img {
     width: 100%;
     height: 200px;
     object-fit: cover;
@@ -248,7 +248,7 @@
   .table_item_data tbody tr:first-child:hover {
     background-color: transparent;
   }
-  navbar {
+  nsnakebar {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -263,17 +263,17 @@
     color: #EFC16B;
     font-weight: 700;
   }
-  .nav_links{
+  .nsnake_links{
     display: flex;
     gap: 0px;
   }
-  .left_navbar{
+  .left_nsnakebar{
     width: 60vw;
     display: flex;
     gap: 180px;
   
   }
-  .nav_links a {
+  .nsnake_links a {
     text-decoration: none;
     color: white;
     margin-right: 20px;
@@ -281,7 +281,7 @@
     font-size: 25px;
   }
   
-  .nav_links a:hover {
+  .nsnake_links a:hover {
     color: #ff9900;
   }
   .button_container{
@@ -303,7 +303,7 @@
   }
   
   
-  .navbar_event_conference{
+  .nsnakebar_event_conference{
     position: fixed;
     top: 1px;
     z-index: 99;
@@ -313,7 +313,7 @@
     cursor: not-allowed; /* Change cursor to indicate that the button is not clickable */
   }
   @media (max-width: 700px) {
-    navbar {
+    nsnakebar {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -323,12 +323,12 @@
         color: white;
         width: 100vw;
     }
-    .nav_links {
+    .nsnake_links {
         display: flex;
         flex-direction: column;
         gap: 20px;
     }
-    .left_navbar {
+    .left_nsnakebar {
         width: 100%;
         display: flex;
         justify-content: center;

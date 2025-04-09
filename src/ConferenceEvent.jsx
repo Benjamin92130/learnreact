@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "./ConferenceEvent.css";
 import TotalCost from "./TotalCost";
 import { useSelector, useDispatch } from "react-redux";
-import { incrementQuantity, decrementQuantity } from "./venueSlice";
-import { incrementAvQuantity, decrementAvQuantity } from "./avSlice";
+import { incrementQuantity, decrementQuantity } from "./roseSlice";
+import { incrementAvQuantity, decrementAvQuantity } from "./snakeSlice";
 import { toggleMealSelection } from "./mealsSlice";
 
 const ConferenceEvent = () => {
