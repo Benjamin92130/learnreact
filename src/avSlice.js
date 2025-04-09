@@ -4,36 +4,35 @@ export const avSlice = createSlice({
   name: "av",
   initialState: [
     {
-      img: "https://pixabay.com/images/download/business-20031_640.jpg",
-      name: "Projectors",
-      cost: 200,
-      quantity: 0,
-  },
-  {
-      img: "https://pixabay.com/images/download/speakers-4109274_640.jpg",
-      name: "Speaker",
-      cost: 35,
-      quantity: 0,
-  },
-  {
-      img: "https://pixabay.com/images/download/public-speaking-3926344_640.jpg",
-      name: "Microphones",
-      cost: 45,
-      quantity: 0,
-  },
-  {
-      img: "https://pixabay.com/images/download/whiteboard-2903269_640.png",
-      name: "Whiteboards",
-      cost: 80,
-      quantity: 0,
-  },
-
-  {
-      img: "https://pixabay.com/images/download/signpost-235079_640.jpg",
-      name: "Signage",
-      cost: 80,
-      quantity: 0,
-  },
+      "img": "https://cdn.pixabay.com/photo/2017/09/19/14/31/sansevieria-2764274_960_720.jpg",
+      "name": "Snake Plant Laurentii",
+      "cost": 12.99,
+      "quantity": 5
+    },
+    {
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Sansevieria_trifasciata_03.jpg/800px-Sansevieria_trifasciata_03.jpg",
+      "name": "Snake Plant Trifasciata",
+      "cost": 9.99,
+      "quantity": 10
+    },
+    {
+      "img": "https://i.pinimg.com/originals/3a/6a/6e/3a6a6e7f4dc3b2c943e94d5c bee7c8.jpg",
+      "name": "Snake Plant Cylindrica",
+      "cost": 14.99,
+      "quantity": 3
+    },
+    {
+      "img": "https://www.gardeningknowhow.com/wp-content/uploads/2020/12/sansevieria.jpg",
+      "name": "Snake Plant Moonshine",
+      "cost": 11.99,
+      "quantity": 7
+    },
+    {
+      "img": "https://www.proflowers.com/blog/wp-content/uploads/2019/07/Snake-Plant.jpg",
+      "name": "Snake Plant Black Coral",
+      "cost": 16.99,
+      "quantity": 2
+    }
 
   ],
 
