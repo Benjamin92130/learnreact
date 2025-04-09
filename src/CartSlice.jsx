@@ -319,4 +319,4 @@ const CartSlice = () => {
     );
 };
 
-export default ConferenceEvent;
+export default CartSlice;
