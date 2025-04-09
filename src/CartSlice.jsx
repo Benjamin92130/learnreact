@@ -6,7 +6,7 @@ import { incrementQuantity, decrementQuantity } from "./venueSlice";
 import { incrementAvQuantity, decrementAvQuantity } from "./avSlice";
 //import { toggleMealSelection } from "./mealsSlice";
 
-const Cartslice = () => {
+const CartSlice = () => {
     const [showItems, setShowItems] = useState(false);
     //const [numberOfPeople, setNumberOfPeople] = useState(1);
     const venueItems = useSelector((state) => state.venue);
