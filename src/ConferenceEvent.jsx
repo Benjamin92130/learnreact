@@ -115,6 +115,7 @@ const ConferenceEvent = () => {
                 </tbody>
             </table>
         </div>
+        
     </>
 };
     const calculateTotalCost = (section) => {
@@ -298,7 +299,14 @@ const ConferenceEvent = () => {
 
 
                             </div>
+                            <div className="render_items">
+                              <ItemsDisplay />
+                          </div>
+                          <div className="total_amount_detail">
+                        <TotalCost totalCosts={ totalCosts } ItemsDisplay={() => <ItemsDisplay items={ items } />} />
+                      </div>
                         </div>
+                        
                     ) : (
                       <div className="total_amount_detail">
                         <TotalCost totalCosts={ totalCosts } ItemsDisplay={() => <ItemsDisplay items={ items } />} />
