@@ -47,24 +47,17 @@ const CartSlice = () => {
   const handleDecrementsucculentQuantity = (index) => {
       dispatch(decrementSucculentQuantity(index));
   };
-  };
 
     const getItemsFromTotalCost = () => {
       const items = [];
       roseItems.forEach((item) => {
-        if (item.quantity > 0) {
-          items.push({ ...item, type: "rose" });
-        }
+        if (item.quantity > 0) {   items.push({ ...item, type: "rose" }); }
       });
       snakeItems.forEach((item) => {
-        if (item.quantity > 0) {
-          items.push({ ...item, type: "snake" });
-        }
+        if (item.quantity > 0) {  items.push({ ...item, type: "snake" }); }
       });
       succulentItems.forEach((item) => {
-        if (item.quantity > 0) {
-          items.push({ ...item, type: "succulent" });
-        }
+        if (item.quantity > 0) {  items.push({ ...item, type: "succulent" }); }
       });
       return items;
     };
@@ -100,9 +93,8 @@ const CartSlice = () => {
                 </tbody>
             </table>
         </div>
-        
-    </>
-};
+      </>
+      };
     const calculateTotalCost = (section) => {
         let totalCost = 0;
         if (section === "rose") {
@@ -113,9 +105,7 @@ const CartSlice = () => {
           snakeItems.forEach((item) => {
             totalCost += item.cost * item.quantity;
           });
-        }
-        
-        else if (section === "succulent") {
+        }else if (section === "succulent") {
           succulentItems.forEach((item) => {
               if (item.selected) {
                 totalCost += item.cost * item.quantity;
@@ -129,9 +119,7 @@ const CartSlice = () => {
     const snakeTotalCost = calculateTotalCost("snake");
     const succulentTotalCost = calculateTotalCost("succulent");
 
-    const totalCosts = {
-      rose: roseTotalCost,  snake: snakeTotalCost,  succulent: succulentTotalCost,
-    };
+    const totalCosts = {rose: roseTotalCost,  snake: snakeTotalCost,  succulent: succulentTotalCost, };
     const navigateToProducts = (idType) => {
         if (idType == '#snake' || idType == '#rose' || idType == '#succulent') {
           if (showItems) { // Check if showItems is false
@@ -160,48 +148,38 @@ const CartSlice = () => {
                     ?
                     (
                         <div className="items-information">
+
                              <div id="snake" className="rose_container container_main">
-        <div className="text">
- 
-          <h2>Snake Plant</h2>
-        </div>
-        <div className="rose_selection">
-          {roseItems.map((item, index) => (
-            <div className="rose_main" key={index}>
-              <div className="img">
-                <img src={item.img} alt={item.name} />
-              </div>
-              <div className="text">{item.name}</div>
-              <div>${item.cost}</div>
-     <div className="button_container">
+                                <div className="text">  <h2>Snake Plant</h2></div>
+                                <div className="rose_selection">
+                                  {roseItems.map((item, index) => (
+                                    <div className="rose_main" key={index}>
+                                      <div className="img">
+                                        <img src={item.img} alt={item.name} />
+                                      </div>
+                                      <div className="text">{item.name}</div>
+                                      <div>${item.cost}</div>
+                                      <div className="button_container">
+                                
+                                        <div className="button_container">
+                                          <button
+                                              className={roseItems[index].quantity ===0 ? " btn-warning btn-disabled" : "btn-warning btn-plus"}
+                                              onClick={() => handleRemoveFromCart(index)}
+                                            >  &#8211;  </button>
+                                            <span className="selected_count">  {roseItems[index].quantity > 0 ? ` ${roseItems[index].quantity}` : "0"} </span>
+                                            <button
+                                              className={roseItems[index].quantity === 10 ? " btn-success btn-disabled" : "btn-success btn-plus"}
+                                              onClick={() => handleAddToCart(index)}
+                                            > &#43; </button>
+                                        </div>
+                                
+                                      </div>
+                                    </div> 
+                                  ))}
+                                </div>
         
-          <div className="button_container">
-           <button
-              className={roseItems[index].quantity ===0 ? " btn-warning btn-disabled" : "btn-warning btn-plus"}
-              onClick={() => handleRemoveFromCart(index)}
-            >
-               &#8211;
-            </button>
-            <span className="selected_count">
-              {roseItems[index].quantity > 0 ? ` ${roseItems[index].quantity}` : "0"}
-            </span>
-            <button
-              className={roseItems[index].quantity === 10 ? " btn-success btn-disabled" : "btn-success btn-plus"}
-              onClick={() => handleAddToCart(index)}
-            >
-             &#43;
-            </button>
-            
-            
-          </div>
-        
-      </div>
-            </div> 
-          ))}
-        </div>
-        
-        <div className="total_cost">Total Cost: ${roseTotalCost}</div>
-      </div>
+                                <div className="total_cost">Total Cost: ${roseTotalCost}</div>
+                              </div>
 
                             {/*Necessary Add-ons*/}
                             <div id="rose" className="rose_container container_main">
@@ -228,7 +206,7 @@ const CartSlice = () => {
                                   </div>
                               ))}
                                 </div>
-                                <div className="total_cost">Total Cost: {snakeTotalCost}</div>
+                                <div className="total_cost">Total Cost: ${snakeTotalCost}</div>
 
                             </div>
 
