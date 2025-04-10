@@ -12,7 +12,7 @@ export default configureStore({
     rose: roseReducer,
     snake: snakeReducer,
     succulent: succulentReducer,
-    products:productsReducer,
+    products: productsReducer,
     cart: cartReducer,
   },
 });
