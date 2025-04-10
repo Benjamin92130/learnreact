@@ -39,7 +39,7 @@ const Productslist = () => {
       if (!items || items.length === 0) {
         console.log("No items in cart");
         return 0;
-      }else if (items.length > 1) {
+      }else{
         console.log("Multiple items in cart");
         let total_amount = 0;
         items.forEach(item => {
