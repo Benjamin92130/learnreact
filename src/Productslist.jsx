@@ -41,7 +41,7 @@ const Productslist = () => {
         return 0;
       }else if (items.length > 1) {
         console.log("Multiple items in cart");
-        const total_amount = 0;
+        let total_amount = 0;
         items.forEach(item => {
           total_amount += item.cost * item.quantity;
         });
