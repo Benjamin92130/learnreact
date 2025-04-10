@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 //import ConferenceEvent from "./ConferenceEvent";
-import CartSlice from "./CartSlice";
+import Productslist from "./Productslist";
 import AboutUs from "./AboutUs";
 
 function App() {
