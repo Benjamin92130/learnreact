@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./CartSlice.css";
+import "./Productslist.css";
 import TotalCost from "./TotalCost";
 import { useSelector, useDispatch } from "react-redux";
 import { incrementRoseQuantity, decrementRoseQuantity } from "./roseSlice";
@@ -7,7 +7,7 @@ import { incrementSnakeQuantity, decrementSnakeQuantity } from "./snakeSlice";
 import { incrementSucculentQuantity, decrementSucculentQuantity } from "./succulentSlice";
 
 
-const CartSlice = () => {
+const Productslist = () => {
     const [showItems, setShowItems] = useState(false);
     //const [numberOfPeople, setNumberOfPeople] = useState(1);
     const roseItems = useSelector((state) => state.rose);
@@ -97,25 +97,17 @@ const CartSlice = () => {
                 </tbody>
             </table>
         </div>
-      </>
-      };
+      </> };
+
     const calculateTotalCost = (section) => {
         let totalCost = 0;
-        if (section === "rose") {
-          roseItems.forEach((item) => {
-            totalCost += item.cost * item.quantity;
-          });
+        if (section === "rose") { 
+          roseItems.forEach((item) => {  totalCost += item.cost * item.quantity; });
         }else if (section === "snake") {
-          snakeItems.forEach((item) => {
-            totalCost += item.cost * item.quantity;
-          });
+          snakeItems.forEach((item) => {  totalCost += item.cost * item.quantity;});
         }else if (section === "succulent") {
-          succulentItems.forEach((item) => {
-              if (item.selected) {
-                totalCost += item.cost * item.quantity;
-              }
-            });
-         }
+          succulentItems.forEach((item) => {  totalCost += item.cost * item.quantity;  });
+        }
         return totalCost;
       };
 
@@ -123,7 +115,7 @@ const CartSlice = () => {
     const snakeTotalCost = calculateTotalCost("snake");
     const succulentTotalCost = calculateTotalCost("succulent");
 
-    const totalCosts = {rose: roseTotalCost,  snake: snakeTotalCost,  succulent: succulentTotalCost, };
+    const totalCosts = {rose: roseTotalCost,  snake: snakeTotalCost,  succulent: succulentTotalCost };
     const navigateToProducts = (idType) => {
         if (idType == '#snake' || idType == '#rose' || idType == '#succulent') {
           if (showItems) { // Check if showItems is false
@@ -261,4 +253,4 @@ const CartSlice = () => {
   ); 
 };
 
-export default CartSlice;
+export default Productslist;

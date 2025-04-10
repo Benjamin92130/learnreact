@@ -31,7 +31,7 @@ function App() {
       </header>
 
       <div className={`event-list-container ${showVenue ? 'visible' : ''}`}>
-        <CartSlice />
+        <Productslist />
       </div>
     </>
   );

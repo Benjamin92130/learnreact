@@ -248,7 +248,7 @@
   .table_item_data tbody tr:first-child:hover {
     background-color: transparent;
   }
-  nsnakebar {
+  navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -263,17 +263,17 @@
     color: #EFC16B;
     font-weight: 700;
   }
-  .nsnake_links{
+  .nav_links{
     display: flex;
     gap: 0px;
   }
-  .left_nsnakebar{
+  .left_navbar{
     width: 60vw;
     display: flex;
     gap: 180px;
   
   }
-  .nsnake_links a {
+  .nav_links a {
     text-decoration: none;
     color: white;
     margin-right: 20px;
@@ -281,7 +281,7 @@
     font-size: 25px;
   }
   
-  .nsnake_links a:hover {
+  .nav_links a:hover {
     color: #ff9900;
   }
   .button_container{
@@ -303,7 +303,7 @@
   }
   
   
-  .nsnakebar_event_conference{
+  .navbar_event_conference{
     position: fixed;
     top: 1px;
     z-index: 99;
@@ -313,7 +313,7 @@
     cursor: not-allowed; /* Change cursor to indicate that the button is not clickable */
   }
   @media (max-width: 700px) {
-    nsnakebar {
+    navbar {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -323,12 +323,12 @@
         color: white;
         width: 100vw;
     }
-    .nsnake_links {
+    .nav_links {
         display: flex;
         flex-direction: column;
         gap: 20px;
     }
-    .left_nsnakebar {
+    .left_navbar {
         width: 100%;
         display: flex;
         justify-content: center;
