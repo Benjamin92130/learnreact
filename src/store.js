@@ -3,6 +3,8 @@ import { configureStore } from '@reduxjs/toolkit';
 import roseReducer from './roseSlice';
 import snakeReducer from './snakeSlice';
 import succulentReducer from './succulentSlice';
+import cartReducer from './cartSlice';
+import productsReducer from './productsSlice';
 
 
 export default configureStore({
@@ -10,5 +12,7 @@ export default configureStore({
     rose: roseReducer,
     snake: snakeReducer,
     succulent: succulentReducer,
+    products:productsReducer,
+    cart: cartReducer,
   },
 });
