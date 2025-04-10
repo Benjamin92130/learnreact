@@ -4,7 +4,7 @@ import roseReducer from './roseSlice';
 import snakeReducer from './snakeSlice';
 import succulentReducer from './succulentSlice';
 import cartReducer from './cartSlice';
-import productsReducer from './productsSlice';
+import productReducer from './productSlice';
 
 
 export default configureStore({
@@ -12,7 +12,7 @@ export default configureStore({
     rose: roseReducer,
     snake: snakeReducer,
     succulent: succulentReducer,
-    products: productsReducer,
+    products: productReducer,
     cart: cartReducer,
   },
 });
