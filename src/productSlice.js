@@ -131,3 +131,7 @@ export const productsSlice = createSlice({
     }
   }
 });
+
+export const {getProductByType, getProductTypes } = productsSlice.actions;
+
+export default productsSlice.reducer;

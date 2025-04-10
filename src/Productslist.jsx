@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { incrementRoseQuantity, decrementRoseQuantity } from "./roseSlice";
 import { incrementSnakeQuantity, decrementSnakeQuantity } from "./snakeSlice";
 import { incrementSucculentQuantity, decrementSucculentQuantity } from "./succulentSlice";
-import { incrementProductsQuantity, decrementProductsQuantity, getProductByType ,getProductTypes } from "./productsSlice";
+import { incrementProductsQuantity, decrementProductsQuantity, getProductByType ,getProductTypes } from "./productSlice";
 import { addToCart, removeFromCart } from "./cartSlice";
 
 
@@ -18,16 +18,16 @@ const Productslist = () => {
     const productItems = useSelector((state) => state.products);
     const cartItems = useSelector((state) => state.cart);
     const totalCost = useSelector((state) => state.cart.totalCost);
-    const productroseItems = useSelector((state) => state.products.getProductByType("rose"));
-    const productSnakeItems = useSelector((state) => state.products.getProductByType("snake"));
-    const productSucculentItems = useSelector((state) => state.products.getProductByType("succulent"));
-    const productTypes = useSelector((state) => state.products.getProductTypes());
+    const productroseItems = useSelector((state) => getProductByType(state.products,"rose"));
+    const productSnakeItems = useSelector((state) => getProductByType(state.products,"snake"));
+    const productSucculentItems = useSelector((state) => getProductByType(state.products,"succulent"));
+    const productTypes = useSelector((state) => getProductTypes(state.products));
 
     console.log("productTypes", productTypes);
     console.log("productroseItems", productroseItems);  
     console.log("productSnakeItems", productSnakeItems);
     console.log("productSucculentItems", productSucculentItems);
-    
+
     const dispatch = useDispatch();
     // remainingAuditoriumQuantity = 3 - roseItems.find(item => item.name === "Auditorium Hall (Capacity:200)").quantity;
    
