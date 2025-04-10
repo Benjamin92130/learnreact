@@ -18,10 +18,12 @@ const Productslist = () => {
     const productItems = useSelector((state) => state.products);
     const cartItems = useSelector((state) => state.cart);
     const totalCost = useSelector((state) => state.cart.totalCost);
-    const productroseItems = useSelector((state) => getProductByType(state.products,"rose"));
-    const productSnakeItems = useSelector((state) => getProductByType(state.products,"snake"));
-    const productSucculentItems = useSelector((state) => getProductByType(state.products,"succulent"));
-    const productTypes = useSelector((state) => getProductTypes(state.products));
+
+    const productroseItems = useSelector( getProductByType(state.products,"rose"));
+    
+    const productSnakeItems = useSelector( getProductByType(state.products,"snake"));
+    const productSucculentItems = useSelector( getProductByType(state.products,"succulent"));
+    const productTypes = useSelector(getProductTypes(state.products));
 
     console.log("productTypes", productTypes);
     console.log("productroseItems", productroseItems);  

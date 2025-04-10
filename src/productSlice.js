@@ -109,7 +109,7 @@ export const productsSlice = createSlice({
 
   ],
   reducers: {
-    incrementProductQuantity: (state, action) => {
+   /* incrementProductQuantity: (state, action) => {
       const item = state.find((item) => item.name === action.payload.name);
       if (item) {
           item.quantity++;
@@ -120,7 +120,7 @@ export const productsSlice = createSlice({
       if (item && item.quantity > 0) {
           item.quantity--;
       }
-    },
+    },*/
     getProductByType: (state, action) => {
       return state.filter((item) => item.type === action.payload);
     },
