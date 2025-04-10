@@ -3,7 +3,7 @@ import "./TotalCost.css";
 
 const TotalCost = ({ totalCosts, ItemsDisplay }) => {
   
-  const total_amount = totalCosts.venue + totalCosts.av + totalCosts.succulent;
+  const total_amount = totalCosts;
   return (
     <div className="pricing-app">
       <div className="display_box">
