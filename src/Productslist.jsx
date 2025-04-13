@@ -129,7 +129,7 @@ const Productslist = () => {
                         
                     ) : (
                       <div className="total_amount_detail">
-                        <TotalCost totalCosts={ totalCosts } ItemsDisplay={() => <CartItems items={ cartItems } />} />
+                        <TotalCost totalCosts={ totalCosts } showItems={showItems}  setShowItems={setShowItems}  ItemsDisplay={() => <CartItems items={ cartItems } />} />
                       </div>
                     )
                 }

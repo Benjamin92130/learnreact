@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { removeFromCart, incrementQuantity, decrementQuantity, clearCart } from "./cartSlice";
+import { removeFromCart, incrementQuantity, decrementQuantity } from "./cartSlice";
 
 
 export const CartItems = ({ items }) => {
@@ -20,9 +20,7 @@ export const CartItems = ({ items }) => {
         dispatch(decrementQuantity(item));
     }  
 
-    const handleClearCart = () => {
-        dispatch(clearCart());
-    };
+    
 
    
     return (
@@ -57,8 +55,7 @@ export const CartItems = ({ items }) => {
                     ))}
                 </tbody>
             </table>
-            <button className="clear_cart_button" onClick={handleClearCart}>Clear Cart</button>
-
+            
         </div>
       ) };
 
