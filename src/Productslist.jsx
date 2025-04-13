@@ -10,29 +10,17 @@ const Productslist = () => {
     const [showItems, setShowItems] = useState(false);
     const productItems = useSelector((state) => state.products);
     const cartItems = useSelector((state) => state.cart);
-    const totalCost = useSelector((state) => state.cart.totalCost);
-    
-    console.log(cartItems);
+
     
     const dispatch = useDispatch();
 
     const getProductsByType = (items, type) => {
-      console.log("state", items);
       return items.filter((item) => item.type === type);
     };
 
     const roseItems = getProductsByType(productItems,"rose");
     const snakeItems = getProductsByType(productItems,"snake");
     const succulentItems = getProductsByType(productItems,"succulent");
-
-    //const productTypes = dispatch(getProductTypes(cartItems));
-    //console.log("productTypes", productTypes);
-
-    console.log("productroseItems", roseItems);  
-    console.log("productSnakeItems", snakeItems);
-    console.log("productSucculentItems", succulentItems);
-
-    
 
     function getTotalCost(items) {
       console.log(items);
@@ -85,7 +73,7 @@ const Productslist = () => {
                                 <div className="text">  <h2>Snake Plant</h2></div>
                                 <div className="rose_selection">
                                   {snakeItems.map((item, index) => (
-                                   <ProductItem item={item}  />
+                                   <ProductItem item={item} showItems={showItems}  setShowItems={setShowItems} />
                                   ))}
                                 </div>
         
@@ -102,7 +90,7 @@ const Productslist = () => {
                                 </div>
                                 <div className="addons_selection">
                                 {roseItems.map((item, index) => (
-                                  <ProductItem item={item}  />
+                                  <ProductItem item={item}  showItems={showItems}  setShowItems={setShowItems}/>
                                 ))}
                                 </div>
                                
@@ -118,7 +106,7 @@ const Productslist = () => {
                                 </div>
                                 <div className="addons_selection">
                                 {succulentItems.map((item, index) => (
-                                  <ProductItem item={item}  />
+                                  <ProductItem item={item} showItems={showItems}  setShowItems={setShowItems} />
                               ))}
                                 </div>
                               

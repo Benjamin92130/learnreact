@@ -24,6 +24,18 @@ const TotalCost = ({ totalCosts,  ItemsDisplay,  showItems, setShowItems}) => {
   return (
     <div className="pricing-app">
       <div className="display_box">
+      { popup ? 
+              (
+                <>
+                <div className="popup_checkout">  
+                <div className="popup_content">
+                  <h2>Checkout - Comming soon</h2>
+                  <p>Total Amount: ${total_amount}</p>
+                  <button className="close_popup" onClick={handleSwapPopup}>Close</button>
+                </div>
+                </div>
+                </>
+                ):( <>
         <div className="header">
           <p className="preheading"><h3>Total cost in your cart</h3></p>
         </div>
@@ -46,22 +58,10 @@ const TotalCost = ({ totalCosts,  ItemsDisplay,  showItems, setShowItems}) => {
                   </div>
               </div>
             </div>
-
-              { popup ? 
-              (
-                <>
-                <div className="popup_checkout">  
-                <div className="popup_content">
-                  <h2>Checkout - Comming soon</h2>
-                  <p>Total Amount: ${total_amount}</p>
-                  <button className="close_popup" onClick={handleSwapPopup}>Close</button>
-                </div>
-                </div>
-                </>
-                ):null
+            </div>
+             </>
+              )
               }
-            <div className='display_popup'></div>
-        </div>
       </div>
     </div>
   );

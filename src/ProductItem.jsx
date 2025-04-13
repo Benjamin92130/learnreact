@@ -5,16 +5,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { addToCart } from "./cartSlice";
 
 export const ProductItem = (props) => {
-  //  const [{ cart }, dispatch] = useStateValue();
     const [quantity, setQuantity] = useState(1);
     const dispatch = useDispatch();
-    const cartItems = useSelector((state) => state.cart);
     const handleAddToCart = () => {
-        console.log(props.item,quantity);
         
         dispatch(addToCart({ ...props.item, quantity: parseInt(quantity) }));
+        props.setShowItems(!props.showItems); // Toggle showItems to true only if it's currently false
         setQuantity(1); // Reset quantity to 1 after adding to cart
-        console.log(cartItems);
+        
     };
     
     return (
@@ -32,7 +30,7 @@ export const ProductItem = (props) => {
                 onChange={(e) => setQuantity(e.target.value)}
                 min="1"
             />
-            <button onClick={handleAddToCart}>Add to Cart</button>
+            <button  className="btn-success" onClick={handleAddToCart}>Add to Cart</button>
             </div>
         </div>
     );
