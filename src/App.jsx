@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./App.css";
-//import ConferenceEvent from "./ConferenceEvent";
 import Productslist from "./Productslist";
 import AboutUs from "./AboutUs";
 

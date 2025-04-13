@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 //import "./ProductItem.css";
 
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addToCart } from "./cartSlice";
 
 export const ProductItem = (props) => {
